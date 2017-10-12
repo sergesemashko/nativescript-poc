@@ -186,6 +186,7 @@
     "@ngx-translate/core": "~7.0.0",
     "@ngx-translate/http-loader": "0.1.0",
     "angulartics2": "^2.2.1",
+    "aws-sign": "^0.1.2",
     "core-js": "^2.4.1",
     "es-module-loader": "^1.0.0",
     "intl": "^1.2.5",
