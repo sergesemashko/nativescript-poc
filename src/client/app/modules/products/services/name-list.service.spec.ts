@@ -13,7 +13,7 @@ import { EffectsTestingModule, EffectsRunner } from '@ngrx/effects/testing';
 import { t } from '../../test/index';
 // import {TEST_CORE_PROVIDERS, GET_HTTP_PROVIDERS_INJECTOR, TEST_LOCATION_PROVIDERS} from '../../core/testing';
 import { AnalyticsModule } from '../../analytics/analytics.module';
-import { NameListService, SampleEffects, reducer, NameList } from '../index';
+import { ProductListService, SampleEffects, reducer, ProductList } from '../index';
 
 // test module configuration for each test
 const testModuleConfig = () => {
@@ -70,12 +70,5 @@ export function main() {
       mockBackendResponse(connection, '["Dijkstra", "Hopper"]');
     });
 
-    t.it('add action', () => {
-      runner.queue(new NameList.AddAction('Minko'));
-
-      nameListEffects.add$.subscribe(result => {
-        t.e(result).toEqual(new NameList.NameAddedAction('Minko'));
-      });
-    });
   });
 }

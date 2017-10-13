@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 // app
 import { RouterExtensions, Config } from '../../modules/core/index';
-import { IAppState, getNames } from '../../modules/ngrx/index';
+import { IAppState, getProducts } from '../../modules/ngrx/index';
 import { NameList } from '../../modules/sample/index';
 
 @Component({
@@ -15,23 +15,20 @@ import { NameList } from '../../modules/sample/index';
     styleUrls: ['amazon.component.css']
 })
 export class AmazonComponent implements OnInit {
-    public names$: Observable<any>;
-    public newName: string;
+    public products$: Observable<any>;
 
     constructor(private store: Store<IAppState>, public routerext: RouterExtensions) {}
 
     ngOnInit() {
-        this.names$ = this.store.let(getNames);
-        this.newName = '';
+        this.products$ = this.store.let(getProducts);
     }
 
     /*
      * @param newname  any text as input.
      * @returns return false to prevent default form submit behavior to refresh the page.
      */
-    addName(): boolean {
-        this.store.dispatch(new NameList.AddAction(this.newName));
-        this.newName = '';
+    search(): boolean {
+        // this.store.dispatch(new NameList.AddAction(this.newName));
         return false;
     }
 
