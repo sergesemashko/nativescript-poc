@@ -1,0 +1,14 @@
+<form (submit)="search()">
+  <input [(ngModel)]="searchQuery" name="searchQuery" [placeholder]="'SEARCH_BAR' | translate">
+  <button type="submit">{{'Search' | translate}}</button>
+</form>
+
+<ul>
+  <li *ngFor="let product of (products$ | async)">
+    <h4>{{product.name}}</h4>
+    <img src="{{product.mediumImage}}"/>
+    <p>{{product.shortDescription}}</p>
+    <p>Price: {{product.regularPrice}}</p>
+  </li>
+</ul>
+

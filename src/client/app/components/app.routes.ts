@@ -1,10 +1,10 @@
 // app
 import { HomeRoutes } from './home/home.routes';
 import { AboutRoutes } from './about/about.routes';
-import { AmazonRoutes } from './amazon/amazon.routes';
+import { BestbuyRoutes } from './bestbuy/bestbuy.routes';
 
 export const routes: Array<any> = [
   ...HomeRoutes,
   ...AboutRoutes,
-  ...AmazonRoutes
+  ...BestbuyRoutes
 ];

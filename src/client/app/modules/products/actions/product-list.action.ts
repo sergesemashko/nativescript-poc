@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
 import { type } from '../../core/utils/index';
+import {IProduct, IProductsState, productInitialState} from '../states/index';
 
 /**
  * Each action should be namespaced
@@ -19,15 +20,15 @@ export namespace ProductList {
    * action types in the application are unique.
    */
   export interface IProductListActions {
-    INIT: string;
-    INITIALIZED: string;
-    INIT_FAILED: string;
+    SEARCH: string;
+    SEARCH_SUCESS: string;
+    SEARCH_FAILED: string;
   }
 
   export const ActionTypes: IProductListActions = {
-    INIT: type(`${CATEGORY} Init`),
-    INITIALIZED: type(`${CATEGORY} Initialized`),
-    INIT_FAILED: type(`${CATEGORY} Init Failed`)
+    SEARCH: type(`${CATEGORY} Search`),
+    SEARCH_SUCESS: type(`${CATEGORY} Search Success`),
+    SEARCH_FAILED: type(`${CATEGORY} Search Failed`),
   };
 
   /**
@@ -37,20 +38,19 @@ export namespace ProductList {
    *
    * See Discriminated Unions: https://www.typescriptlang.org/docs/handbook/advanced-types.html#discriminated-unions
    */
-  export class InitAction implements Action {
-    type = ActionTypes.INIT;
-    payload: string = null;
+  export class SearchAction implements Action {
+    type = ActionTypes.SEARCH;
+    constructor(public payload: string) { }
   }
 
-  export class InitializedAction implements Action {
-    type = ActionTypes.INITIALIZED;
-    search: string = null;
-    constructor(public payload: Array<string>) { }
+  export class SearchSuccessAction implements Action {
+    type = ActionTypes.SEARCH_SUCESS;
+    constructor(public payload: Array<IProduct>) { }
   }
 
-  export class InitFailedAction implements Action {
-    type = ActionTypes.INIT_FAILED;
-    payload: string = null;
+  export class SearchFailedAction implements Action {
+    type = ActionTypes.SEARCH_FAILED;
+    public payload: IProductsState = productInitialState;
   }
 
   /**
@@ -58,7 +58,7 @@ export namespace ProductList {
    * so that reducers can easily compose action types
    */
   export type Actions
-    = InitAction
-    | InitializedAction
-    | InitFailedAction;
+    = SearchAction
+    | SearchSuccessAction
+    | SearchFailedAction;
 }

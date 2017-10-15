@@ -30,11 +30,11 @@ import { MultilingualModule } from '../i18n/multilingual.module';
     SharedModule
   ]
 })
-export class SampleModule {
+export class ProductModule {
 
-  constructor(@Optional() @SkipSelf() parentModule: SampleModule) {
+  constructor(@Optional() @SkipSelf() parentModule: ProductModule) {
     if (parentModule) {
-      throw new Error('SampleModule already loaded; Import in root module only.');
+      throw new Error('ProductModule already loaded; Import in root module only.');
     }
   }
 }

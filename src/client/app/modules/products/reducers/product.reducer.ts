@@ -9,9 +9,13 @@ export function reducer(
   action: ProductList.Actions
 ): IProductsState {
   switch (action.type) {
-    case ProductList.ActionTypes.INITIALIZED:
+    case ProductList.ActionTypes.SEARCH_SUCESS:
       return (<any>Object).assign({}, state, {
-        names: action.payload
+        products: action.payload
+      });
+    case ProductList.ActionTypes.SEARCH:
+      return (<any>Object).assign({}, state, {
+        searchQuery: action.payload
       });
 
     default:

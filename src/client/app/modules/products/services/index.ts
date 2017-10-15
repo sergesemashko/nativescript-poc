@@ -1,7 +1,7 @@
-import { ProductListService } from './name-list.service';
+import { ProductListService } from './product-list.service';
 
 export const PRODUCT_PROVIDERS: any[] = [
     ProductListService
 ];
 
-export * from './name-list.service';
+export * from './product-list.service';

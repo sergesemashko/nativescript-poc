@@ -21,6 +21,7 @@ import { CoreModule, Config } from './app/modules/core/index';
 import { AnalyticsModule } from './app/modules/analytics/index';
 import { MultilingualModule, Languages, translateLoaderFactory, MultilingualEffects } from './app/modules/i18n/index';
 import { SampleModule, SampleEffects } from './app/modules/sample/index';
+import { ProductModule, ProductEffects} from './app/modules/products/index';
 import { AppReducer } from './app/modules/ngrx/index';
 
 // config
@@ -80,10 +81,12 @@ if (String('<%= BUILD_TYPE %>') === 'dev') {
       useFactory: (translateLoaderFactory)
     }]),
     SampleModule,
+    ProductModule,
     // configure app state
     StoreModule.provideStore(AppReducer),
     EffectsModule.run(MultilingualEffects),
     EffectsModule.run(SampleEffects),
+    EffectsModule.run(ProductEffects),
     // dev environment only imports
     DEV_IMPORTS,
   ],

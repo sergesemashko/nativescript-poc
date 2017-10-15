@@ -20,7 +20,7 @@ import { AnalyticsModule } from '../../modules/analytics/analytics.module';
 import { MultilingualModule } from '../../modules/i18n/multilingual.module';
 import { LanguageProviders } from '../../modules/i18n/index';
 import { SharedModule } from '../../modules/shared/index';
-import { HomeComponent } from './amazon.component';
+import { HomeComponent } from './bestbuy';
 
 // test module configuration for each test
 const testModuleConfig = () => {

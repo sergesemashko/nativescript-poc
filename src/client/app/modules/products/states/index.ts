@@ -1,1 +1,1 @@
-export * from './sample.state';
+export * from './product.state';

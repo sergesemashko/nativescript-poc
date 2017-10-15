@@ -60,7 +60,8 @@ export interface IAppState {
  */
 const reducers = {
   i18n: fromMultilingual.reducer,
-  sample: fromSample.reducer
+  sample: fromSample.reducer,
+  products: fromProducts.reducer
 };
 
 // ensure state is frozen as extra level of security when developing
@@ -83,10 +84,11 @@ export function getMultilingualState(state$: Observable<IAppState>): Observable<
 export function getNameListState(state$: Observable<IAppState>): Observable<fromSample.ISampleState> {
   return state$.select(s => s.sample);
 }
-export function getProductsListState(state$: Observable<IAppState>): Observable<fromProducts  .IProductsState> {
+export function getProductsListState(state$: Observable<IAppState>): Observable<fromProducts.IProductsState> {
+  console.log(state$);
   return state$.select(s => s.products);
 }
 
 export const getLang: any = compose(fromMultilingual.getLang, getMultilingualState);
 export const getNames: any = compose(fromSample.getNames, getNameListState);
-export const getProducts: any = compose(fromProducts.getProducts, getNameListState);
+export const getProducts: any = compose(fromProducts.getProducts, getProductsListState);

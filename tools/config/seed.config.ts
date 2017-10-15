@@ -449,6 +449,12 @@ export class SeedConfig {
       'node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic-testing.umd.js',
       '@angular/router/testing': 'node_modules/@angular/router/bundles/router-testing.umd.js',
 
+      'apac': 'node_modules/apac/lib/apac.js',
+      'flat': 'node_modules/flat/index.js',
+      'crypto': 'node_modules/flat/index.js',
+      'request': 'node_modules/request/index.js',
+      'xml2js': 'node_modules/xml2js/lib/xml2js',
+      'es6-promise': 'node_modules/flat/index.js',
       'app/*': '/app/*',
       // For test config
       'dist/dev/*': '/base/dist/dev/*',

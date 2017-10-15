@@ -1,12 +1,12 @@
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
-import { AmazonComponent } from './amazon/amazon.component';
+import { BestbuyComponent } from './bestbuy/bestbuy';
 import { HomeComponent } from './home/home.component';
 
 export const APP_COMPONENTS: any[] = [
   AppComponent,
   AboutComponent,
-  AmazonComponent,
+  BestbuyComponent,
   HomeComponent
 ];
 
