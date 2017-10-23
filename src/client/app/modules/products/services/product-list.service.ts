@@ -4,7 +4,7 @@ import {Http} from '@angular/http';
 
 // libs
 import {Observable} from 'rxjs/Observable';
-import Rx from 'rxjs/Rx';
+// import Rx from 'rxjs/Rx';
 
 // app
 import {Config} from '../../core/index';
@@ -71,5 +71,14 @@ export class ProductListService extends Analytics {
     //         });
     // }));
 
+  }
+
+  getProductBySku(sku: string): Observable<Array<any>> {
+    return this.http.get('https://api.bestbuy.com/v1/products(sku in(' + sku + '))?apiKey=NrzcAJWwiPaxVfuo9ZJ9X2XG&format=json&pageSize=15&show=all&sort=bestSellingRank')
+      .map(res => res.json().products);
+    // return this.http.get('https://api.bestbuy.com/v1/products(' + searchQuery.trim().split(' ').
+    //   map(keyword => ('search=' + keyword)).join('&') +
+    //   ')?show=sku,name,mediumImage,regularPrice,shortDescription&pageSize=15&page=5&apiKey=NrzcAJWwiPaxVfuo9ZJ9X2XG&format=json')
+    //   .map(res => res.json().products);
   }
 }

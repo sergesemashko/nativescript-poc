@@ -9,6 +9,7 @@ import { HttpModule } from '@angular/http';
 import { SharedModule } from '../shared/index';
 import { CORE_DIRECTIVES } from './directives/index';
 import { CORE_PROVIDERS } from './services/index';
+import { CORE_PROVIDERS } from './services/index';
 import { Config } from './utils/index';
 
 interface ICoreModuleOptions {

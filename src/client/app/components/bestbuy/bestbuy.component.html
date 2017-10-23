@@ -3,10 +3,20 @@
   <button type="submit">{{'Search' | translate}}</button>
 </form>
 
+<ul *ngIf="(products$ | async)?.length==0">
+  <li *ngFor="let category of (categories$ | async)?.categories">
+    <a [routerLink]="['/bestbuy/' + category.id]" (click)="onCategorySelect(category.id)">
+      <h4>{{category.name}}</h4>
+    </a>
+  </li>
+</ul>
+
 <ul>
   <li *ngFor="let product of (products$ | async)">
-    <h4>{{product.name}}</h4>
-    <img src="{{product.mediumImage}}"/>
+    <a [routerLink]="['/bestbuy/product/' + product.sku]">
+      <h4>{{product.name}}</h4>
+      <img src="{{product.mediumImage}}"/>
+    </a>
     <p>{{product.shortDescription}}</p>
     <p>Price: {{product.regularPrice}}</p>
   </li>

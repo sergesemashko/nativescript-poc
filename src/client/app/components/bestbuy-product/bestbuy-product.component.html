@@ -1,0 +1,7 @@
+<div *ngFor="let product of (product$ | async)">
+  <h4>{{product.name}}</h4>
+  <img src="{{product.mediumImage}}"/>
+  <p>{{product.shortDescription}}</p>
+  <p>Price: {{product.regularPrice}}</p>
+</div>
+

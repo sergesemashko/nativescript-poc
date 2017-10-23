@@ -23,11 +23,9 @@ export class ProductEffects {
   @Effect() search$: Observable<Action> = this.actions$
     .ofType(ProductList.ActionTypes.SEARCH)
     .switchMap((action) => {
-      console.log(action);
       return this.ProductListService.getProducts(action.payload)
     })
     .map(payload => {
-      console.log(payload);
       let products: Array<IProduct> = payload;
       return new ProductList.SearchSuccessAction(products);
     })

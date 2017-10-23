@@ -19,6 +19,5 @@ export const productInitialState: IProductsState = {
 
 // selects specific slice from sample state
 export function getProducts(state$: Observable<IProductsState>) {
-  console.log(state$);
   return state$.select(state => state.products);
 }

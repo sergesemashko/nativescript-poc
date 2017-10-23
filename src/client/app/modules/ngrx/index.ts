@@ -85,7 +85,6 @@ export function getNameListState(state$: Observable<IAppState>): Observable<from
   return state$.select(s => s.sample);
 }
 export function getProductsListState(state$: Observable<IAppState>): Observable<fromProducts.IProductsState> {
-  console.log(state$);
   return state$.select(s => s.products);
 }
 
